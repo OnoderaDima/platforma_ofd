@@ -2,9 +2,173 @@
  <html>
      <head>
         <title></title>
-        
+        <script src="plugins/jquery/jquery.js"></script>
+        <script src="plugins/bootstrap/js/bootstrap.js"></script>
+        <script src="js/accordeon.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap-grid.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script>
+            $(document).ready(function(){
+                $(test).accordionLoad();
+                
+            });
+        </script>
      </head>
      <body>
+        <aside class="left-panel">
+            привет
+        </aside>         
+        
+        <section class="photograph-list-accordeon container">
 
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <span class="photograph-list-caption">Photographers</span>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div id="test" class="photograph-item accordeon">
+
+                    <!-- блок, отображаемый в свернутом состоянии-->
+                    <div class="photograph-avatar user-status-online">
+                            <img src="users/user001/small.jpg">
+                    </div>
+
+                    <!-- блок, отображаемый в развернутом состоянии-->
+                    <div class="photograph-big-avatar">
+                        <div class="photograph-big-avatar-container">
+                            <div class="photograph-big-avatar-caption">
+                                <span class="caption-bold">Matilda Evans</span>
+                                <span class="caption-default">Dublin</span>
+                            </div>
+                            <div class="photograph-big-avatar-rate">
+                                <div class="rate">
+                                    <img src="img/star_light.png">
+                                    <img src="img/star_light.png">
+                                    <img src="img/star_empty.png">
+                                    <img src="img/star_empty.png">
+                                    <img src="img/star_empty.png">                                        
+                                </div>
+                                <div class="user-status-block">
+                                    <span class="user-status user-status-online">online</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <!-- блок, отображаемый в свернутом состоянии-->                    
+                    <div class="photograph-caption">
+                            <span class="caption-bold color-grey">
+                                Gunther Ackner
+                            </span>
+                            <span class="caption-default color-grey">
+                                Hangzhou
+                            </span> 
+                    </div>
+
+                    <!-- блок, отображаемый в развернутом состоянии-->                    
+                    <div class="photograph-big-specialization">
+                            <span class="caption-bold color-grey">Specialization</span>
+                            <span class="caption-default color-grey">Landscapes</span>
+                            <span class="caption-default color-grey">Landscapes</span>
+                            <span class="caption-default color-grey">Landscapes</span>                                                        
+                    </div>                    
+
+                    <!-- блок, отображаемый в свернутом состоянии-->                    
+                    <div class="photograph-rate">
+                        <div>
+                            <img src="img/star_empty.png">
+                            <img src="img/star_empty.png">
+                            <img src="img/star_empty.png">
+                            <img src="img/star_empty.png">
+                            <img src="img/star_empty.png">
+                        </div>
+                    </div>
+
+                    <!-- блок, отображаемый в развернутом состоянии-->                    
+                    <div class="photograph-big-galery">
+                        <div class="photogalery">
+                            <div class="photo">
+                                <div class="photo-footer">
+                                    <a href="#" class="photo-heart"><img src="img/favorite-heart-button-copy-2.png"></a>
+                                    <span class="photo-like-count">26</span>
+                                </div>
+                            </div>                                                                                               
+                        </div>
+                    </div>
+
+                    <div class="photograph-arrow">
+                        <a class="accordeon-arrow">
+                            <img src="img/arrow.svg">
+                        </a>
+                    </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+    
+                        <div class="photograph-item-big">
+
+                        <div class="photograph-big-avatar">
+                             <div class="photograph-big-avatar-container">
+                                 <div class="photograph-big-avatar-caption">
+                                    <span class="caption-bold">Matilda Evans</span>
+                                    <span class="caption-default">Dublin</span>
+                                 </div>
+                                 <div class="photograph-big-avatar-rate">
+                                    <div class="rate">
+                                        <img src="img/star_light.png">
+                                        <img src="img/star_light.png">
+                                        <img src="img/star_empty.png">
+                                        <img src="img/star_empty.png">
+                                        <img src="img/star_empty.png">                                        
+                                    </div>
+                                    <div class="user-status-block">
+                                        <span class="user-status user-status-online">online</span>
+                                    </div>
+                                 </div>
+                             </div>
+                        </div>
+
+                        <div class="photograph-big-specialization">
+                            <span class="caption-bold color-grey">Specialization</span>
+                            <span class="caption-default color-grey">Landscapes</span>
+                            <span class="caption-default color-grey">Landscapes</span>
+                            <span class="caption-default color-grey">Landscapes</span>                                                        
+                        </div>
+
+                        <div class="photograph-big-galery">
+                            <div class="photogalery">
+                                <div class="photo">
+                                    <div class="photo-footer">
+                                        <a href="#" class="photo-heart"><img src="img/favorite-heart-button-copy-2.png"></a>
+                                        <span class="photo-like-count">26</span>
+                                    </div>
+                                </div>                                                                                               
+                            </div>
+                        </div>
+
+                        <div class="photograph-arrow">
+                            <a class="accordeon-arrow">
+                                <img src="img/arrow.svg">
+                            </a>
+                        </div>                        
+
+                        </div>
+    
+                    </div>
+                </div>             
+        </section>
+
+        
      </body>
  </html>

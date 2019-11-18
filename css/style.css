@@ -1,0 +1,259 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #eff3f6;
+    min-height: 100%;
+}
+
+/* Общие стили */
+
+/* Надписи */
+.caption-bold {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    margin: 5px 0;
+}
+
+.caption-default {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    margin: 5px 0;    
+}
+
+/* Цвета текста */
+.color-white {color: #ffffff!important;}
+.color-grey {color: #666666!important;}
+
+/* Левая боковая панель */
+aside.left-panel {
+    display: flex;
+    width: 60px;
+    height: 100%;
+    background-color: #03aaec;
+}
+
+/* Заголовок списка фотографов */
+span.photograph-list-caption {
+    display: block;
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;    
+    color: #03aaec;
+}
+
+/* Стили для свернутого состояния */
+section.photograph-list-accordeon > div.row  div.photograph-item {
+    display: inline-grid;
+    width: 100%;
+    grid-template-rows: 50px;
+    grid-template-columns: 60px 400px auto 77px;
+    background-color: #ffffff;
+    height: 86px;
+    margin-bottom: 10px;
+    /*padding: 18px;*/
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+div.photograph-avatar {
+    position: relative;
+    padding: 18px;
+}
+
+div.photograph-avatar > img {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+div.photograph-avatar.user-status-offline:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
+    background-color: #d0021b;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+}
+
+div.photograph-avatar.user-status-online:after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    bottom: -15px;
+    background-color: #7ed321;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+}
+
+div.photograph-caption {
+    height: 50px;
+    padding: 18px;
+}
+
+div.photograph-caption > span.caption-default {
+
+}
+
+div.photograph-rate {
+
+}
+
+div.photograph-arrow {
+    padding: 18px;
+}
+
+a.accordeon-arrow {
+    cursor: pointer;
+    display: inline-block;
+    width: 41px;
+    height: 41px;
+    text-align: center;
+    line-height: 41px;
+    border-radius: 20px;
+    background-color: rgba(3, 170, 236, 0.08);  
+}
+
+
+/* Стили для развернутого состояния */
+section.photograph-list-accordeon > div.row  div.photograph-item-big {
+    display: inline-grid;
+    width: 100%;
+    grid-template-rows: auto;
+    grid-template-columns: 192px 110px auto 77px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Контейнер большого аватара пользователя */
+div.photograph-big-avatar-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 192px;
+    height: 258px;
+    background-image: url(../users/user001/big.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.photograph-big-avatar-container > div.photograph-big-avatar-caption {
+    padding: 17px 19px;
+}
+
+/* Рейтинг пользователя */
+div.photograph-big-avatar-container > div.photograph-big-avatar-rate > div.rate { 
+    padding: 0 19px;
+}
+
+div.rate > img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Статус пользователя */
+div.photograph-big-avatar-container > div.photograph-big-avatar-rate > div.user-status-block {
+    padding: 17px 19px;
+}
+
+span.user-status {
+    display: inline-block;
+    padding: 0 7px;
+    height: 15px;
+    border-radius: 7.5px;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+span.user-status.user-status-offline {
+    background-color: #d0021b;
+}
+
+span.user-status.user-status-online {
+    background-color: #7ed321;
+}
+
+/* Блок специализации */
+div.photograph-big-specialization {
+    padding: 17px;
+}
+
+/* Блок галереи */
+div.photograph-big-galery {
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+}
+
+div.photogalery {
+
+}
+
+div.photogalery > div.photo {
+    position: relative;
+    display: inline-block;
+    width: 138px;
+    height: 137px;
+    margin: 0;
+    border: 1px solid red;
+    background-image: url(../img/rectangle-copy-3@2x.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.photogalery > div.photo > div.photo-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+a.photo-heart {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+span.photo-like-count {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
