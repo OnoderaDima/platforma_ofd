@@ -47,7 +47,7 @@ aside.left-panel {
 }
 
 /* Заголовок списка фотографов */
-span.photograph-list-caption {
+span.photographer-list-caption {
     display: block;
     padding: 20px 0;
     text-transform: uppercase;
@@ -61,25 +61,37 @@ span.photograph-list-caption {
     color: #03aaec;
 }
 
-/* Стили для свернутого состояния */
-section.photograph-list-accordeon > div.row  div.photograph-item {
+/* Общий стиль для контейнера списка фотографов */
+section.photographer-list div.photographer-item {
     display: inline-grid;
     width: 100%;
-    grid-template-rows: 50px;
-    grid-template-columns: 60px 400px auto 77px;
     background-color: #ffffff;
-    height: 86px;
-    margin-bottom: 10px;
-    /*padding: 18px;*/
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;    
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);    
 }
 
-div.photograph-avatar {
+/* Стиль для контейнера списка фотографий по-умолчанию или при наличии класса minimized */
+section.photographer-list div.photographer-item,
+section.photographer-list div.photographer-item.minimized {
+    grid-template-rows: 50px;
+    grid-template-columns: 60px 400px auto 77px;
+    height: 86px;
+}
+
+/* Стиль для контейнера списка фотографии при наличии класса maximized */
+section.photographer-list div.photographer-item.maximized {
+    grid-template-rows: auto!important;
+    grid-template-columns: 192px 110px auto 77px!important;
+    height: auto!important;
+}
+
+/* Стиль блока аватара при свернутом режиме */
+div.photographerer-minimized-avatar {
     position: relative;
     padding: 18px;
 }
 
-div.photograph-avatar > img {
+div.photographer-minimized-avatar > img {
     position: relative;
     display: inline-block;
     width: 50px;
@@ -87,7 +99,7 @@ div.photograph-avatar > img {
     border-radius: 25px;
 }
 
-div.photograph-avatar.user-status-offline:after {
+div.photographer-minimized-avatar.user-status-offline:after {
     content: "";
     position: absolute;
     right: 10px;
@@ -98,7 +110,7 @@ div.photograph-avatar.user-status-offline:after {
     border-radius: 6px;
 }
 
-div.photograph-avatar.user-status-online:after {
+div.photographer-minimized-avatar.user-status-online:after {
     content: "";
     position: absolute;
     right: -8px;
@@ -109,20 +121,140 @@ div.photograph-avatar.user-status-online:after {
     border-radius: 6px;
 }
 
-div.photograph-caption {
+div.photographer-item.maximized div.photographer-minimized-avatar {display: none!important;}
+
+/* Стиль блока аватара в развёрнутом режиме*/
+div.photographer-maximized-avatar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 192px;
+    height: 258px;
+    background-image: url(../users/user001/big.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+    div.photographer-maximized-avatar > div.photographer-maximized-avatar-caption {
+        padding: 17px 19px;
+    }
+
+    /* Рейтинг пользователя */
+    div.photographer-maximized-avatar > div.photographer-maximized-avatar-rate > div.rate { 
+        padding: 0 19px;
+    }
+        div.rate > img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }       
+
+    /* Статус пользователя */
+    div.photographer-maximized-avatar-container > div.photographer-maximized-avatar-rate > div.user-status-block {
+        padding: 17px 19px;
+    }
+        span.user-status {
+            display: inline-block;
+            padding: 0 7px;
+            height: 15px;
+            border-radius: 7.5px;
+            font-size: 12px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #ffffff;
+        }
+        span.user-status.user-status-offline {
+            background-color: #d0021b;
+        }
+        span.user-status.user-status-online {
+            background-color: #7ed321;
+        }
+
+    div.photographer-item:not(.maximized) div.photographer-maximized-avatar, 
+    div.photographer-item.minimized div.photographer-maximized-avatar {
+        display: none!important;
+    }
+
+/* Блок описания фотографа в свёрнутом режиме */
+div.photographer-minimized-caption {
     height: 50px;
     padding: 18px;
 }
 
-div.photograph-caption > span.caption-default {
+div.photographer-item.maximized div.photographer-minimized-caption {display: none!important;}
 
+
+/* Блок специализации в развёрнутом режиме */
+div.photographer-maximized-specialization {
+    padding: 17px;
 }
 
-div.photograph-rate {
+    div.photographer-item:not(.maximized) div.photographer-maximized-specialization, 
+    div.photographer-item.minimized div.photographer-maximized-specialization {
+        display: none!important;
+    }
 
+/* Блок рейтинга фотографа в свёрнутом режиме */
+div.photographer-item.maximized div.photographer-minimized-rate {display: none!important;} 
+
+/* Блок галереи */
+div.photographer-maximized-galery {
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
 }
 
-div.photograph-arrow {
+    div.photogalery {
+
+    }
+
+        div.photogalery > div.photo {
+            position: relative;
+            display: inline-block;
+            width: 138px;
+            height: 137px;
+            margin: 0;
+            border: 1px solid red;
+            background-image: url(../img/rectangle-copy-3@2x.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+            div.photogalery > div.photo > div.photo-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px;
+            }
+
+                a.photo-heart {
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+
+                span.photo-like-count {
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 16px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #ffffff;
+                }
+
+    div.photographer-item:not(.maximized) div.photographer-maximized-galery, 
+    div.photographer-item.minimized div.photographer-maximized-galery {
+        display: none!important;
+    }
+
+/* Общий блок кнопки сворачивания-разворачивания */
+div.photographer-arrow {
     padding: 18px;
 }
 
@@ -135,125 +267,4 @@ a.accordeon-arrow {
     line-height: 41px;
     border-radius: 20px;
     background-color: rgba(3, 170, 236, 0.08);  
-}
-
-
-/* Стили для развернутого состояния */
-section.photograph-list-accordeon > div.row  div.photograph-item-big {
-    display: inline-grid;
-    width: 100%;
-    grid-template-rows: auto;
-    grid-template-columns: 192px 110px auto 77px;
-    background-color: #ffffff;
-    margin-bottom: 10px;
-    padding: 0;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-}
-
-/* Контейнер большого аватара пользователя */
-div.photograph-big-avatar-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 192px;
-    height: 258px;
-    background-image: url(../users/user001/big.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-div.photograph-big-avatar-container > div.photograph-big-avatar-caption {
-    padding: 17px 19px;
-}
-
-/* Рейтинг пользователя */
-div.photograph-big-avatar-container > div.photograph-big-avatar-rate > div.rate { 
-    padding: 0 19px;
-}
-
-div.rate > img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
-
-/* Статус пользователя */
-div.photograph-big-avatar-container > div.photograph-big-avatar-rate > div.user-status-block {
-    padding: 17px 19px;
-}
-
-span.user-status {
-    display: inline-block;
-    padding: 0 7px;
-    height: 15px;
-    border-radius: 7.5px;
-    font-size: 12px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-}
-
-span.user-status.user-status-offline {
-    background-color: #d0021b;
-}
-
-span.user-status.user-status-online {
-    background-color: #7ed321;
-}
-
-/* Блок специализации */
-div.photograph-big-specialization {
-    padding: 17px;
-}
-
-/* Блок галереи */
-div.photograph-big-galery {
-    display: flex;
-    align-items: flex-end;
-    padding: 25px;
-}
-
-div.photogalery {
-
-}
-
-div.photogalery > div.photo {
-    position: relative;
-    display: inline-block;
-    width: 138px;
-    height: 137px;
-    margin: 0;
-    border: 1px solid red;
-    background-image: url(../img/rectangle-copy-3@2x.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-div.photogalery > div.photo > div.photo-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-}
-
-a.photo-heart {
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-span.photo-like-count {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
 }

@@ -10,8 +10,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script>
             $(document).ready(function(){
-                $(test).accordionLoad();
-                
+               // $(test).accordionLoad("https://raw.githubusercontent.com/OnoderaDima/platforma_ofd/master/list.json");
+                $('#photographer').photographers().loadFrom("https://raw.githubusercontent.com/OnoderaDima/platforma_ofd/master/list.json").printStr();
             });
         </script>
      </head>
@@ -20,32 +20,32 @@
             привет
         </aside>         
         
-        <section class="photograph-list-accordeon container">
+        <section id="photographer" class="photographer-list container">
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-lg-12">
-                    <span class="photograph-list-caption">Photographers</span>
+                    <span class="photographer-list-caption">Photographers</span>
                 </div>
             </div>
 
             <div class="row">
 
                 <div class="col-md-12 col-sm-12 col-lg-12">
-                    <div id="test" class="photograph-item accordeon">
+                    <div id="test" class="photographer-item minimized">
 
                     <!-- блок, отображаемый в свернутом состоянии-->
-                    <div class="photograph-avatar user-status-online">
+                    <div class="photographer-minimized-avatar user-status-online">
                             <img src="users/user001/small.jpg">
                     </div>
 
                     <!-- блок, отображаемый в развернутом состоянии-->
-                    <div class="photograph-big-avatar">
-                        <div class="photograph-big-avatar-container">
-                            <div class="photograph-big-avatar-caption">
+                    <div class="photographer-maximized-avatar">
+                        <div class="photographer-maximized-avatar-container">
+                            <div class="photographer-maximized-avatar-caption">
                                 <span class="caption-bold">Matilda Evans</span>
                                 <span class="caption-default">Dublin</span>
                             </div>
-                            <div class="photograph-big-avatar-rate">
+                            <div class="photographer-maximized-avatar-rate">
                                 <div class="rate">
                                     <img src="img/star_light.png">
                                     <img src="img/star_light.png">
@@ -61,7 +61,7 @@
                     </div>                    
 
                     <!-- блок, отображаемый в свернутом состоянии-->                    
-                    <div class="photograph-caption">
+                    <div class="photographer-minimized-caption">
                             <span class="caption-bold color-grey">
                                 Gunther Ackner
                             </span>
@@ -71,7 +71,7 @@
                     </div>
 
                     <!-- блок, отображаемый в развернутом состоянии-->                    
-                    <div class="photograph-big-specialization">
+                    <div class="photographer-maximized-specialization">
                             <span class="caption-bold color-grey">Specialization</span>
                             <span class="caption-default color-grey">Landscapes</span>
                             <span class="caption-default color-grey">Landscapes</span>
@@ -79,7 +79,7 @@
                     </div>                    
 
                     <!-- блок, отображаемый в свернутом состоянии-->                    
-                    <div class="photograph-rate">
+                    <div class="photographer-minimized-rate">
                         <div>
                             <img src="img/star_empty.png">
                             <img src="img/star_empty.png">
@@ -90,7 +90,7 @@
                     </div>
 
                     <!-- блок, отображаемый в развернутом состоянии-->                    
-                    <div class="photograph-big-galery">
+                    <div class="photographer-maximized-galery">
                         <div class="photogalery">
                             <div class="photo">
                                 <div class="photo-footer">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
 
-                    <div class="photograph-arrow">
+                    <div class="photographer-arrow">
                         <a class="accordeon-arrow">
                             <img src="img/arrow.svg">
                         </a>
@@ -112,7 +112,7 @@
                 </div>
 
             </div>
-
+<!--
             <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-12">
     
@@ -166,7 +166,7 @@
                         </div>
     
                     </div>
-                </div>             
+                </div>       -->      
         </section>
 
         
