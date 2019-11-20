@@ -2,7 +2,8 @@ body, html {
     padding: 0;
     margin: 0;
     background-color: #eff3f6;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /* Общие стили */
@@ -17,7 +18,7 @@ body, html {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #ffffff;
+    color: #ffffff;    
     margin: 5px 0;
 }
 
@@ -25,7 +26,6 @@ body, html {
     display: block;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -36,14 +36,83 @@ body, html {
 
 /* Цвета текста */
 .color-white {color: #ffffff!important;}
-.color-grey {color: #666666!important;}
+.color-grey {color: #3c4652!important;}
+.color-screen {mix-blend-mode: screen;}
+
+/* Шапка сайта */
+header.top-panel {
+    padding: 40px;
+    text-align: right;
+}
+
+    header.top-panel a.top-panel-link {
+        color: #03aaec;
+        font-size: 18px;
+        font-family: 'Roboto',sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+    }
+
+    header.top-panel a.top-panel-link:hover {
+        color: orange;
+    }
 
 /* Левая боковая панель */
 aside.left-panel {
     display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
     width: 60px;
     height: 100%;
     background-color: #03aaec;
+    z-index: 10000;
+}
+
+    aside.left-panel > div.logo-block {
+        padding: 16px;
+    }
+
+        aside.left-panel > div.logo-block > img {
+            width: 28px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+    aside.left-panel > div.phone-block {
+        padding: 18px;
+    }
+
+        aside.left-panel > div.phone-block > img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            cursor: pointer;
+            transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;            
+        }
+
+        aside.left-panel > div.phone-block > img:hover {
+            transform: rotate(15deg);
+            -webkit-transform: rotate(15deg);
+            -moz-transform: rotate(15deg);
+            -o-transform: rotate(15deg);                                    
+        }
+
+/* Контейнер списка */
+section.photographer-list {
+    width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Заголовок списка фотографов */
@@ -64,29 +133,42 @@ span.photographer-list-caption {
 /* Общий стиль для контейнера списка фотографов */
 section.photographer-list div.photographer-item {
     display: inline-grid;
+    grid-template-columns: auto 77px;
     width: 100%;
     background-color: #ffffff;
     margin-bottom: 10px;    
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);    
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);   
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s; 
+}
+
+section.photographer-list div.photographer-item:hover {
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.3);  
+}
+
+section.photographer-list div.photographer-item div.photographer-content-grid {
+    display: grid;
 }
 
 /* Стиль для контейнера списка фотографий по-умолчанию или при наличии класса minimized */
-section.photographer-list div.photographer-item,
-section.photographer-list div.photographer-item.minimized {
+section.photographer-list div.photographer-item div.photographer-content-grid,
+section.photographer-list div.photographer-item.minimized div.photographer-content-grid {
     grid-template-rows: 50px;
-    grid-template-columns: 60px 400px auto 77px;
+    grid-template-columns: 60px 200px auto;
     height: 86px;
 }
 
 /* Стиль для контейнера списка фотографии при наличии класса maximized */
-section.photographer-list div.photographer-item.maximized {
+section.photographer-list div.photographer-item.maximized div.photographer-content-grid {
     grid-template-rows: auto!important;
-    grid-template-columns: 192px 110px auto 77px!important;
-    height: auto!important;
+    grid-template-columns: 192px 110px auto!important;
+    height: 258px!important;
 }
 
 /* Стиль блока аватара при свернутом режиме */
-div.photographerer-minimized-avatar {
+div.photographer-minimized-avatar {
     position: relative;
     padding: 18px;
 }
@@ -102,8 +184,8 @@ div.photographer-minimized-avatar > img {
 div.photographer-minimized-avatar.user-status-offline:after {
     content: "";
     position: absolute;
-    right: 10px;
-    bottom: 3px;
+    right: -8px;
+    bottom: -15px;
     background-color: #d0021b;
     width: 12px;
     height: 12px;
@@ -124,7 +206,7 @@ div.photographer-minimized-avatar.user-status-online:after {
 div.photographer-item.maximized div.photographer-minimized-avatar {display: none!important;}
 
 /* Стиль блока аватара в развёрнутом режиме*/
-div.photographer-maximized-avatar {
+div.photographer-maximized-avatar-container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -135,19 +217,32 @@ div.photographer-maximized-avatar {
     background-position: center;
     background-size: cover;
 }
-    div.photographer-maximized-avatar > div.photographer-maximized-avatar-caption {
+    div.photographer-maximized-avatar-container > div.photographer-maximized-avatar-caption { 
         padding: 17px 19px;
     }
 
     /* Рейтинг пользователя */
-    div.photographer-maximized-avatar > div.photographer-maximized-avatar-rate > div.rate { 
+    div.photographer-maximized-avatar-container > div.photographer-maximized-avatar-rate > div.rate { 
         padding: 0 19px;
     }
-        div.rate > img {
+
+        div.rate > a.rate-star {
+            display: inline-block;
             width: 20px;
             height: 20px;
-            margin-right: 5px;
-        }       
+            font-size: 24px;
+            margin-right: 3px;
+            color: #d4d7da;        
+        }      
+
+        div.rate.shadowed > a.rate-star {text-shadow: 0 2px 3px rgba(0,0,0,0.8);}
+        
+        div.rate.rate-0 > a.rate-star {color: #d4d7da!important;}
+        div.rate.rate-1 > a.rate-star:nth-child(-n+1) {color:#f0ce27!important;}
+        div.rate.rate-2 > a.rate-star:nth-child(-n+2) {color:#f0ce27!important;}    
+        div.rate.rate-3 > a.rate-star:nth-child(-n+3) {color:#f0ce27!important;}
+        div.rate.rate-4 > a.rate-star:nth-child(-n+4) {color:#f0ce27!important;}        
+        div.rate.rate-5 > a.rate-star:nth-child(-n+5) {color:#f0ce27!important;}                      
 
     /* Статус пользователя */
     div.photographer-maximized-avatar-container > div.photographer-maximized-avatar-rate > div.user-status-block {
@@ -198,17 +293,20 @@ div.photographer-maximized-specialization {
     }
 
 /* Блок рейтинга фотографа в свёрнутом режиме */
+div.photographer-item div.photographer-minimized-rate {padding: 17px;}
+
 div.photographer-item.maximized div.photographer-minimized-rate {display: none!important;} 
 
 /* Блок галереи */
 div.photographer-maximized-galery {
-    display: flex;
-    align-items: flex-end;
-    padding: 25px;
+    padding: 25px 5px; 
 }
 
-    div.photogalery {
 
+    div.photogalery {
+        display: flex;
+        align-items: flex-end;
+        height: 100%;
     }
 
         div.photogalery > div.photo {
@@ -216,13 +314,26 @@ div.photographer-maximized-galery {
             display: inline-block;
             width: 138px;
             height: 137px;
-            margin: 0;
-            border: 1px solid red;
-            background-image: url(../img/rectangle-copy-3@2x.png);
+            margin-right: 3px;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
         }
+
+            div.photogalery > div.photo > div.photo-zoom {
+                display: none;
+                position: absolute;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url(../img/zoom.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: rgba(0,0,0,0.4);
+                cursor: pointer;
+            }
 
             div.photogalery > div.photo > div.photo-footer {
                 position: absolute;
@@ -237,9 +348,16 @@ div.photographer-maximized-galery {
                     cursor: pointer;
                 }
 
+                    a.photo-heart img {
+                        width: 18px;
+                        height: 16px;
+                        object-fit: contain;
+                    }
+
                 span.photo-like-count {
                     font-family: 'Roboto', sans-serif;
                     font-size: 16px;
+                    line-height: 18px;
                     font-weight: normal;
                     font-stretch: normal;
                     font-style: normal;
@@ -258,13 +376,39 @@ div.photographer-arrow {
     padding: 18px;
 }
 
-a.accordeon-arrow {
-    cursor: pointer;
-    display: inline-block;
-    width: 41px;
-    height: 41px;
-    text-align: center;
-    line-height: 41px;
-    border-radius: 20px;
-    background-color: rgba(3, 170, 236, 0.08);  
-}
+    a.accordeon-arrow {
+        cursor: pointer;
+        display: inline-block;
+        width: 41px;
+        height: 41px;
+        text-align: center;
+        line-height: 41px;
+        border-radius: 20px;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        background-color: rgba(3, 170, 236, 0.08);  
+    }
+
+    a.accordeon-arrow:hover {
+        background-color: rgba(3, 170, 236, 0.3);  
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);                        
+    }
+
+    a.accordeon-arrow img {
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;        
+    }
+
+    a.accordeon-arrow.dropdowned img {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
