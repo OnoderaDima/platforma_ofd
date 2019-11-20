@@ -95,7 +95,8 @@
                             templateHTML += '</div>';
                             // шаблон аватара для развёрнутого состояния
                             templateHTML += '<div class="photographer-maximized-avatar">';
-                            templateHTML += '<div class="photographer-maximized-avatar-container">';
+                            templateHTML += '<div class="photographer-maximized-avatar-container" style="background-image:url('
+                                         + photographer["picture"]+')">';
                             templateHTML += '<div class="photographer-maximized-avatar-caption">';
                             templateHTML += '<span class="caption-bold">'+photographer["name"]["first"]
                                          + ' '+photographer["name"]["last"]

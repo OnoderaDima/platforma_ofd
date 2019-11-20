@@ -212,7 +212,6 @@ div.photographer-maximized-avatar-container {
     flex-direction: column;
     width: 192px;
     height: 258px;
-    background-image: url(../users/user001/big.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
